@@ -84,7 +84,7 @@ class _IgScheduleScreenState extends State<IgScheduleScreen> {
                       return Center(
                         child: SpinKitCircle(
                           size: 50,
-                          color: Colors.blue,
+                          color: Colors.green,
                         ),
                       );
                     }
@@ -125,15 +125,10 @@ class _IgScheduleScreenState extends State<IgScheduleScreen> {
                                                     .circular(20),
                                                 color: Colors.white60
                                             ),
-                                            child: Center(child: Text(
-                                              snapshot.data!.schedules![index]
-                                                  .team1.toString(),
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.poppins(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight
-                                                      .w700),))),
+                                      child: CircleAvatar(
+                                        backgroundImage: AssetImage('deptlogos/'+snapshot.data!.schedules![index].team1.toString()+'.png'),
+                                            ),
+                                        ),
                                         Column(
                                           mainAxisAlignment: MainAxisAlignment
                                               .center,
@@ -153,15 +148,19 @@ class _IgScheduleScreenState extends State<IgScheduleScreen> {
                                                     .circular(20),
                                                 color: Colors.white60
                                             ),
-                                            child: Center(child: Text(
-                                              snapshot.data!.schedules![index]
-                                                  .team2.toString(),
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.poppins(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight
-                                                      .w700),))),
+                                          child: CircleAvatar(
+                                            backgroundImage: AssetImage('deptlogos/'+snapshot.data!.schedules![index].team2.toString()+'.png'),
+                                          ),
+                                        )
+                                            // child: Center(child: Text(
+                                            //   snapshot.data!.schedules![index]
+                                            //       .team2.toString(),
+                                            //   maxLines: 1,
+                                            //   overflow: TextOverflow.ellipsis,
+                                            //   style: GoogleFonts.poppins(
+                                            //       fontSize: 20,
+                                            //       fontWeight: FontWeight
+                                            //           .w700),))),
                                       ],
                                     ),
                                   ),

@@ -80,10 +80,10 @@ class _SplashScreenState extends State<SplashScreen>
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(right: 70),
+                        padding: const EdgeInsets.only(right: 60),
                         child: Image.asset(
                           'images/ids333-removebg-preview.png', // Replace with your logo path
-                          width: 200,
+                          width: 170,
                           height: 200, // Adjust the height as needed
                         ),
                       ),

@@ -5,6 +5,7 @@ import 'package:igapp/models/schedule.dart';
 import 'package:igapp/screens/SettingsScreen.dart';
 
 import 'package:igapp/screens/ig_schedule_screen.dart';
+import 'package:igapp/screens/ig_schedule_screen2.dart';
 import 'package:igapp/screens/igleader2.dart';
 import 'package:igapp/screens/igenthu.dart';
 import 'package:provider/provider.dart';
@@ -24,11 +25,11 @@ class _HomeScreen2State extends State<HomeScreen2> {
     {
       return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
+
           backgroundColor: Colors.green[900],
           leading: Container(), // Set an empty container as the leading widget
           title: Padding(
-            padding: const EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.only(left: 2),
             child: Text(
               "IG 2024",
               style: GoogleFonts.brawler(fontWeight: FontWeight.w400, fontSize: 20),
@@ -49,7 +50,10 @@ class _HomeScreen2State extends State<HomeScreen2> {
                         child: child,
                       );
                     },
-                    child: CircleAvatar(backgroundColor: Colors.lightGreen),
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 12),
+                      child: CircleAvatar(backgroundColor: Colors.lightGreen),
+                    ),
                   ),
                 ),
 
@@ -132,7 +136,7 @@ class _HomeScreen2State extends State<HomeScreen2> {
             InkWell(
               onTap:  (){
                 Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => IgScheduleScreen()));
+                    builder: (context) => IgScheduleScreen2()));
               },
               child: Container(
                 padding: const EdgeInsets.all(8),

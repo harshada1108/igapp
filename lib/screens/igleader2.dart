@@ -33,7 +33,7 @@ class _IgLeaderScreenState extends State<IgLeaderScreen> {
 
       return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor:  themeNotifier.isDark ? Colors.transparent : Colors.white,
           title: Text('IG LEADERBOARD', style: GoogleFonts.poppins(
               fontSize: 20, fontWeight: FontWeight.w700, color: Colors.lightGreen),),
         ),
@@ -78,135 +78,135 @@ class _IgLeaderScreenState extends State<IgLeaderScreen> {
                     print("Isme Hoon");
 
                     return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
                       child: DataTable(
                         columns: [
                           DataColumn(label:Text('INDEX', style: GoogleFonts.poppins(
-                              fontSize: 15,
+                              fontSize: 12,
                               fontWeight: FontWeight.w700,
                               color: Colors.lightGreen),),),
                           DataColumn(label:Text('LEADERBOARD', style: GoogleFonts.poppins(
-                              fontSize: 15,
+                              fontSize: 12,
                               fontWeight: FontWeight.w700,
                               color: Colors.lightGreen),),),
                           DataColumn(label:Text('POINTS', style: GoogleFonts.poppins(
-                              fontSize: 13,
+                              fontSize: 12,
                               fontWeight: FontWeight.w700,
                               color: Colors.lightGreen),), ),
                         ],
                         rows: [
                           DataRow(cells: [
                             DataCell(Text('1', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell(Text('CSE', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell( Text(snapshot.data.points.cSE.toString(),
-                              style: GoogleFonts.poppins(fontSize: 17,
+                              style: GoogleFonts.poppins(fontSize: 13,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.lightGreen),),),
                           ]),
                           DataRow(cells: [
                             DataCell(Text('2', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell(Text('ECE', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell( Text(snapshot.data.points.eCE.toString(),
-                                style: GoogleFonts.poppins(fontSize: 17,
+                                style: GoogleFonts.poppins(fontSize: 13,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.lightGreen)),),
                           ]),
                           DataRow(cells: [
                             DataCell(Text('3', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell( Text('EEE', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell(  Text(snapshot.data.points.eEE.toString(),
-                              style: GoogleFonts.poppins(fontSize: 17,
+                              style: GoogleFonts.poppins(fontSize: 13,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.lightGreen),),),
                           ]),
                           DataRow(cells: [
                             DataCell(Text('4', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell( Text('MECH', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell(Text(snapshot.data.points.mECH.toString(),
-                              style: GoogleFonts.poppins(fontSize: 17,
+                              style: GoogleFonts.poppins(fontSize: 13,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.lightGreen),),),
                           ]),
                           DataRow(cells: [
                             DataCell(Text('5', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell(Text('CIVIL', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell( Text(snapshot.data.points.cIVIL.toString(),
-                              style: GoogleFonts.poppins(fontSize: 17,
+                              style: GoogleFonts.poppins(fontSize: 13,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.lightGreen),),),
                           ]),
                           DataRow(cells: [
                             DataCell(Text('6', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
 
                             DataCell(Text('CHEMMIN', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell( Text(snapshot.data.points.cHEMMIN.toString(),
-                              style: GoogleFonts.poppins(fontSize: 17,
+                              style: GoogleFonts.poppins(fontSize: 13,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.lightGreen),),),
                           ]),
                           DataRow(cells: [
                             DataCell(Text('7', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
 
                             DataCell(Text('META', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell( Text(snapshot.data.points.mETA.toString(),
-                              style: GoogleFonts.poppins(fontSize: 17,
+                              style: GoogleFonts.poppins(fontSize: 13,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.lightGreen),),),
                           ]),
                           DataRow(cells: [
                             DataCell(Text('8', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
 
                             DataCell(Text('ARCHI', style: GoogleFonts.poppins(
-                                fontSize: 17,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.lightGreen),),),
                             DataCell( Text(snapshot.data.points.aRCHI.toString(),
-                              style: GoogleFonts.poppins(fontSize: 17,
+                              style: GoogleFonts.poppins(fontSize: 13,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.lightGreen),),),
                           ]),

@@ -32,7 +32,7 @@ class IgRepository{
     String url = 'https://campaverse-production.up.railway.app/api/v1/leaderboard_points';
     final response = await http.get(Uri.parse(url));
     if (kDebugMode) {
-      print(response.body);
+     // print(response.body);
     }
     if (response.statusCode == 200) {
       final body = jsonDecode(response.body);

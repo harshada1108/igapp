@@ -10,7 +10,6 @@ import 'package:igapp/screens/igleader2.dart';
 import 'package:igapp/screens/igenthu.dart';
 import 'package:provider/provider.dart';
 
-
 class HomeScreen2 extends StatefulWidget {
   const HomeScreen2({super.key});
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:igapp/screens/Loginwithname.dart';
 import 'package:igapp/screens/homescreen2.dart';
+import 'package:igapp/screens/homescreenui.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -30,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen>
     // Wait for 3 seconds and then navigate to the home screen
     Future.delayed(Duration(seconds: 5), () {
       Navigator.push(context, MaterialPageRoute(
-          builder: (context) => HomeScreen2()));
+          builder: (context) => SelectionScreen()));
     });
   }
 
@@ -51,12 +53,9 @@ class _SplashScreenState extends State<SplashScreen>
             Padding(
               padding: const EdgeInsets.only(top: 200),
               child: Center(
-                child: Hero(
-                  tag: 'iglogo',
-                  child: CircleAvatar(
-                    radius: _animation.value * 70,
-                    backgroundColor: Colors.green,
-                  ),
+                child: CircleAvatar(
+                  radius: _animation.value * 70,
+                  backgroundColor: Colors.green,
                 ),
               ),
             ),

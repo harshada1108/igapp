@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -6,9 +5,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:igapp/SharedPreferences/leadermodelpref.dart';
 import 'package:igapp/models/ig_leader_model.dart';
 import 'package:provider/provider.dart';
+import '../SharedPreferences/SpFunctionsForLeaderB.dart';
 import '../models/ig_enthu_model.dart';
 import '../view_model/ig_view_model.dart';
 import 'package:igapp/Theme/ThemeModal.dart';
+import '';
 
 class IgLeaderScreen extends StatefulWidget {
   const IgLeaderScreen({super.key});
@@ -18,20 +19,36 @@ class IgLeaderScreen extends StatefulWidget {
 }
 
 class _IgLeaderScreenState extends State<IgLeaderScreen> {
-  late int csep;
-  late AsyncSnapshot<int> cseval =AsyncSnapshot<int>.nothing();
   late Future<igleadermodel> leaderModelFuture;
   bool isDataFetched = false;
+  late int csep;
+  late var cseval1;
+  late AsyncSnapshot<int> cseval = AsyncSnapshot<int>.nothing();
+  late int mechp;
+  late var mechval1;
+  late AsyncSnapshot<int> mechval = AsyncSnapshot<int>.nothing();
+  late int civp;
+  late var civval1;
+  late AsyncSnapshot<int> civval = AsyncSnapshot<int>.nothing();
+  late int metap;
+  late var metaval1;
+  late AsyncSnapshot<int> metaval = AsyncSnapshot<int>.nothing();
+  late int chemminp;
+  late var chemminval1;
+  late AsyncSnapshot<int> chemminval = AsyncSnapshot<int>.nothing();
+  late int archip;
+  late var archival1;
+  late AsyncSnapshot<int> archival = AsyncSnapshot<int>.nothing();
+  late int ecep;
+  late var eceval1;
+  late AsyncSnapshot<int> eceval = AsyncSnapshot<int>.nothing();
+  late int eeep;
+  late var eeeval1;
+  late AsyncSnapshot<int> eeeval = AsyncSnapshot<int>.nothing();
 
-  late Future<dynamic> mechp;
-  late Future<dynamic> civp;
-  late Future<dynamic> metap;
-  late Future<dynamic> chemminp;
-  late Future<dynamic> archip;
-  late Future<dynamic> ecep;
-  late Future<dynamic> eeep;
 
   IgViewModel igViewModel = IgViewModel();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -46,13 +63,89 @@ class _IgLeaderScreenState extends State<IgLeaderScreen> {
         isDataFetched = true;
       });
     });
+
+    getMechFromSharedPreferences().then((value) {
+      setState(() {
+        mechval = AsyncSnapshot<int>.withData(
+          ConnectionState.done,
+          value ?? mechp, // Provide a default value if null
+        );
+        isDataFetched = true;
+      });
+    });
+
+    getMetaFromSharedPreferences().then((value) {
+      setState(() {
+        metaval = AsyncSnapshot<int>.withData(
+          ConnectionState.done,
+          value ?? metap, // Provide a default value if null
+        );
+        isDataFetched = true;
+      });
+    });
+
+    getChemminFromSharedPreferences().then((value) {
+      setState(() {
+        chemminval = AsyncSnapshot<int>.withData(
+          ConnectionState.done,
+          value ?? chemminp, // Provide a default value if null
+        );
+        isDataFetched = true;
+      });
+    });
+
+    getCivFromSharedPreferences().then((value) {
+      setState(() {
+        civval = AsyncSnapshot<int>.withData(
+          ConnectionState.done,
+          value ?? civp, // Provide a default value if null
+        );
+        isDataFetched = true;
+      });
+    });
+
+    getArchiFromSharedPreferences().then((value) {
+      setState(() {
+        archival = AsyncSnapshot<int>.withData(
+          ConnectionState.done,
+          value ?? archip, // Provide a default value if null
+        );
+        isDataFetched = true;
+      });
+    });
+
+    getEceFromSharedPreferences().then((value) {
+      setState(() {
+        eceval = AsyncSnapshot<int>.withData(
+          ConnectionState.done,
+          value ?? ecep, // Provide a default value if null
+        );
+        isDataFetched = true;
+      });
+    });
+
+    getEeeFromSharedPreferences().then((value) {
+      setState(() {
+        eeeval = AsyncSnapshot<int>.withData(
+          ConnectionState.done,
+          value ?? eeep, // Provide a default value if null
+        );
+        isDataFetched = true;
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ThemeModal themeNotifier, child) {
-      final width = MediaQuery.of(context).size.width * 1;
-      final height = MediaQuery.of(context).size.height * 1;
+      final width = MediaQuery
+          .of(context)
+          .size
+          .width * 1;
+      final height = MediaQuery
+          .of(context)
+          .size
+          .height * 1;
 
       return Scaffold(
         appBar: AppBar(
@@ -72,7 +165,8 @@ class _IgLeaderScreenState extends State<IgLeaderScreen> {
             Expanded(
               child: FutureBuilder<igleadermodel>(
                 future: leaderModelFuture,
-                builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                builder: (BuildContext context,
+                    AsyncSnapshot<dynamic> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(
                       child: SpinKitCircle(
@@ -81,21 +175,16 @@ class _IgLeaderScreenState extends State<IgLeaderScreen> {
                       ),
                     );
                   } else if (snapshot.hasError) {
-                    var cseval1 = cseval;
-                    print(cseval1);
-
-
-                    return Center(
-                      child: Text(
-
-                        cseval1.data.toString(),
-                        style: GoogleFonts.poppins(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    );
-                  } else if (snapshot.data == null || snapshot.data.points == null) {
+                    cseval1 = cseval;
+                    mechval1 = mechval;
+                    eceval1 = eceval;
+                    civval1 = civval;
+                    chemminval1 = chemminval;
+                    eeeval1 = eeeval;
+                    metaval1 = metaval;
+                    archival1 = archival;
+                  } else
+                  if (snapshot.data == null || snapshot.data.points == null) {
                     return Center(
                       child: Text(
                         'No Data Available :-( Try after 24 Hours',
@@ -107,11 +196,29 @@ class _IgLeaderScreenState extends State<IgLeaderScreen> {
                       ),
                     );
                   } else {
-                    csep = snapshot.data.points.cSE;
+                    csep = snapshot.data.points.cSE ?? csep;
+                    mechp = snapshot.data.points.mECH ?? mechp;
+                    chemminp = snapshot.data.points.cHEMMIN ?? chemminp;
+                    archip = snapshot.data.points.aRCHI ?? archip;
+                    metap = snapshot.data.points.mETA ?? metap;
+                    ecep = snapshot.data.points.eCE ?? ecep;
+                    eeep = snapshot.data.points.eEE ?? eeep;
+                    civp = snapshot.data.points.cIVIL ?? civp;
+
+
                     saveCseToSharedPreferences(csep);
+                    saveArchiToSharedPreferences(archip);
+                    saveChemminToSharedPreferences(chemminp);
+                    saveCivToSharedPreferences(civp);
+                    saveEceToSharedPreferences(ecep);
+                    saveEeeToSharedPreferences(eeep);
+                    saveMechToSharedPreferences(mechp);
+                    saveMetaToSharedPreferences(metap);
+
                     if (!isDataFetched &&
                         (cseval.connectionState == ConnectionState.none ||
-                            cseval.connectionState == ConnectionState.waiting)) {
+                            cseval.connectionState ==
+                                ConnectionState.waiting)) {
                       // Fetch the CSE value only once when the AsyncSnapshot is not done yet
                       getCseFromSharedPreferences().then((value) {
                         setState(() {
@@ -123,17 +230,138 @@ class _IgLeaderScreenState extends State<IgLeaderScreen> {
                         });
                       });
                     }
-                    print(cseval.data.toString());
+                    if (!isDataFetched &&
+                        (mechval.connectionState == ConnectionState.none ||
+                            mechval.connectionState ==
+                                ConnectionState.waiting)) {
+                      // Fetch the CSE value only once when the AsyncSnapshot is not done yet
+                      getMechFromSharedPreferences().then((value) {
+                        setState(() {
+                          mechval = AsyncSnapshot<int>.withData(
+                            ConnectionState.done,
+                            value ?? mechp, // Provide a default value if null
+                          );
+                          isDataFetched = true;
+                        });
+                      });
+                    }
 
+                    if (!isDataFetched &&
+                        (civval.connectionState == ConnectionState.none ||
+                            civval.connectionState ==
+                                ConnectionState.waiting)) {
+                      // Fetch the CSE value only once when the AsyncSnapshot is not done yet
+                      getCivFromSharedPreferences().then((value) {
+                        setState(() {
+                          civval = AsyncSnapshot<int>.withData(
+                            ConnectionState.done,
+                            value ?? civp, // Provide a default value if null
+                          );
+                          isDataFetched = true;
+                        });
+                      });
+                    }
+                    if (!isDataFetched &&
+                        (chemminval.connectionState == ConnectionState.none ||
+                            chemminval.connectionState ==
+                                ConnectionState.waiting)) {
+                      // Fetch the CSE value only once when the AsyncSnapshot is not done yet
+                      getChemminFromSharedPreferences().then((value) {
+                        setState(() {
+                          chemminval = AsyncSnapshot<int>.withData(
+                            ConnectionState.done,
+                            value ??
+                                chemminp, // Provide a default value if null
+                          );
+                          isDataFetched = true;
+                        });
+                      });
+                    }
+                    if (!isDataFetched &&
+                        (eceval.connectionState == ConnectionState.none ||
+                            eceval.connectionState ==
+                                ConnectionState.waiting)) {
+                      // Fetch the CSE value only once when the AsyncSnapshot is not done yet
+                      getEceFromSharedPreferences().then((value) {
+                        setState(() {
+                          eceval = AsyncSnapshot<int>.withData(
+                            ConnectionState.done,
+                            value ?? ecep, // Provide a default value if null
+                          );
+                          isDataFetched = true;
+                        });
+                      });
+                    }
+                    if (!isDataFetched &&
+                        (eeeval.connectionState == ConnectionState.none ||
+                            eeeval.connectionState ==
+                                ConnectionState.waiting)) {
+                      // Fetch the CSE value only once when the AsyncSnapshot is not done yet
+                      getEeeFromSharedPreferences().then((value) {
+                        setState(() {
+                          eeeval = AsyncSnapshot<int>.withData(
+                            ConnectionState.done,
+                            value ?? eeep, // Provide a default value if null
+                          );
+                          isDataFetched = true;
+                        });
+                      });
+                    }
+                    if (!isDataFetched &&
+                        (archival.connectionState == ConnectionState.none ||
+                            archival.connectionState ==
+                                ConnectionState.waiting)) {
+                      // Fetch the CSE value only once when the AsyncSnapshot is not done yet
+                      getArchiFromSharedPreferences().then((value) {
+                        setState(() {
+                          archival = AsyncSnapshot<int>.withData(
+                            ConnectionState.done,
+                            value ?? archip, // Provide a default value if null
+                          );
+                          isDataFetched = true;
+                        });
+                      });
+                    }
+                    if (!isDataFetched &&
+                        (metaval.connectionState == ConnectionState.none ||
+                            metaval.connectionState ==
+                                ConnectionState.waiting)) {
+                      // Fetch the CSE value only once when the AsyncSnapshot is not done yet
+                      getMetaFromSharedPreferences().then((value) {
+                        setState(() {
+                          metaval = AsyncSnapshot<int>.withData(
+                            ConnectionState.done,
+                            value ?? metap, // Provide a default value if null
+                          );
+                          isDataFetched = true;
+                        });
+                      });
+                    }
+                  }
+                  List<String> departmentNames = [
+                    'CSE',
+                    'MECH',
+                    'CIVIL',
+                    'META',
+                    'CHEMMIN',
+                    'ARCHI',
+                    'ECE',
+                    'EEE',
+                  ];
+                  List<String> points = [
+                    cseval.data.toString() ?? cseval1.data.toString(),
+                    mechval.data.toString() ?? mechval1.data.toString(),
+                    civval.data.toString() ?? civval1.data.toString(),
+                    metaval.data.toString() ?? metaval1.data.toString(),
+                    chemminval.data.toString() ?? chemminval1.data.toString(),
+                    archival.data.toString() ?? archival1.data.toString(),
+                    eceval.data.toString() ?? eceval1.data.toString(),
+                    eeeval.data.toString() ?? eeeval1.data.toString(),
+                  ];
 
-
-
-
-
-
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                      child: DataTable(
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                    child: DataTable(
                         columns: [
                           DataColumn(
                             label: Text(
@@ -166,11 +394,14 @@ class _IgLeaderScreenState extends State<IgLeaderScreen> {
                             ),
                           ),
                         ],
-                        rows: [
-                          DataRow(cells: [
+                        rows: List.generate(departmentNames.length, (index) {
+                          String departmentName = departmentNames[index];
+                          String Points = points[index];
+
+                          return DataRow(cells: [
                             DataCell(
                               Text(
-                                '1',
+                                (index + 1).toString(),
                                 style: GoogleFonts.poppins(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700,
@@ -180,7 +411,7 @@ class _IgLeaderScreenState extends State<IgLeaderScreen> {
                             ),
                             DataCell(
                               Text(
-                                'CSE',
+                                departmentName,
                                 style: GoogleFonts.poppins(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700,
@@ -190,7 +421,7 @@ class _IgLeaderScreenState extends State<IgLeaderScreen> {
                             ),
                             DataCell(
                               Text(
-                       cseval.data.toString(),
+                                Points,
                                 style: GoogleFonts.poppins(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700,
@@ -198,12 +429,13 @@ class _IgLeaderScreenState extends State<IgLeaderScreen> {
                                 ),
                               ),
                             ),
-                          ]),
-                          // ... other rows
-                        ],
-                      ),
-                    );
-                  }
+
+                          ]);
+                        })
+
+
+                    ),
+                  );
                 },
               ),
             ),
@@ -211,17 +443,5 @@ class _IgLeaderScreenState extends State<IgLeaderScreen> {
         ),
       );
     });
-  }
-
-  // Function to save CSE points to Shared Preferences
-  void saveCseToSharedPreferences(int points) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setInt('csePoints', points);
-  }
-
-  // Function to retrieve CSE points from Shared Preferences
-  Future<int?> getCseFromSharedPreferences() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getInt('csePoints');
   }
 }

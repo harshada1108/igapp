@@ -25,7 +25,7 @@ import 'package:shared_preferences/shared_preferences.dart';
     prefs.setInt('civp', points);
   }
 
-// Function to retrieve CSE points from Shared Preferences
+
   Future<int?> getCivFromSharedPreferences() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getInt('civp');
@@ -35,7 +35,6 @@ import 'package:shared_preferences/shared_preferences.dart';
     prefs.setInt('ecep', points);
   }
 
-// Function to retrieve CSE points from Shared Preferences
   Future<int?> getEceFromSharedPreferences() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getInt('ecep');
@@ -45,7 +44,7 @@ import 'package:shared_preferences/shared_preferences.dart';
     prefs.setInt('eeep', points);
   }
 
-// Function to retrieve CSE points from Shared Preferences
+
   Future<int?> getEeeFromSharedPreferences() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getInt('eeep');
@@ -55,7 +54,6 @@ import 'package:shared_preferences/shared_preferences.dart';
     prefs.setInt('metap', points);
   }
 
-// Function to retrieve CSE points from Shared Preferences
   Future<int?> getMetaFromSharedPreferences() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getInt('metap');

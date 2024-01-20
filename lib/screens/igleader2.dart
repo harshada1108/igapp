@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:igapp/SharedPreferences/leadermodelpref.dart';
 import 'package:igapp/models/ig_leader_model.dart';
 import 'package:provider/provider.dart';
 import '../SharedPreferences/SpFunctionsForLeaderB.dart';
